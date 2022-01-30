@@ -26,6 +26,41 @@ def Ejercicio1():
 def Ejercicio2():
     print("Se despliega ejercicio 2:")
 
+    primos:list = [] # lista donde se guardaran los numeros primos
+    count = conteo.count(1, 1) # count de 1 en 1
+        
+    # Se recorren los numeros del 1 al 100 en el count
+    for i in count:
+        
+        # Se excluye el numero 1
+        if i == 1:
+            continue
+
+        # Se excluyen los numeros multiplos de 2 mayores que 2
+        elif i % 2 == 0 and i != 2:
+            continue
+            
+        # Se excluyen los numeros multiplos de 3 mayores que 3
+        elif i % 3 == 0 and i != 3:
+            continue
+        
+        # Se excluyen aquellos numeros multiplos de 5
+        elif i % 5 == 0 and i != 5:
+            continue 
+
+        # Se excluyen aquellos numeros multiplos de 7
+        elif i % 7 == 0 and i != 7:
+            continue
+
+        # Se evitan los numeros mayores que 100
+        if i >= 100:
+            break
+        
+        # Se incluyen unicamente los numeros primos de 1 al 100
+        primos.append(i)
+
+    print(f'Lista de numeros primos < 100: \n{primos}\nConteo de numeros primos menores a 100: {len(primos)}') # Imprime lista de numeros primos menores a 100
+
 
 def Ejercicio3():
     print("Se despliega ejercicio 3:")
@@ -82,10 +117,8 @@ def Ejercicio3():
 
 # --------------- Main -------------------
 
-
 def bye():
     print('Gracias por usar el programa!!')
-
 
 print('\n----- Bienvenido al programa ----\n')
 
@@ -100,7 +133,11 @@ dict_menu = {
 
 while menu != '4':
 
-    menu = input(
-        '\ningrese una opcion\n1. Ejercicio 1\n2. Ejercicio 2\n3. Ejericio 3\n4. salir\n-> ')
-    accion = dict_menu[menu]
-    accion()
+    try:
+        menu = input(
+            '\ningrese una opcion\n1. Ejercicio 1\n2. Ejercicio 2\n3. Ejericio 3\n4. salir\n-> ')
+        accion = dict_menu[menu]
+        accion()
+    
+    except KeyError:
+        print('ERROR: Eliga una opcion valida')
